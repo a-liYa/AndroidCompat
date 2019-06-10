@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aliya.compat.R;
+import com.aliya.compat.toast.ToastContext;
 
 /**
  * Toast WindowManager$BadTokenException 异常演示
@@ -30,20 +31,27 @@ public class ToastSampleActivity extends AppCompatActivity implements View.OnCli
 
         findViewById(R.id.tv_normal).setOnClickListener(this);
         findViewById(R.id.tv_exception).setOnClickListener(this);
+        findViewById(R.id.tv_fix_exception).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_normal:
-                Toast.makeText(this, "我是正常Toast", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "我是正常Toast", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tv_exception:
-                Toast.makeText(this, "我是异常Toast", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "我是异常Toast", Toast.LENGTH_SHORT).show();
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(3000);
                 } catch (InterruptedException e) {
-                    // ingore
+                }
+                break;
+            case R.id.tv_fix_exception:
+                Toast.makeText(ToastContext.compatContext(this), "我是异常修复Toast", Toast.LENGTH_SHORT).show();
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
                 }
                 break;
         }
