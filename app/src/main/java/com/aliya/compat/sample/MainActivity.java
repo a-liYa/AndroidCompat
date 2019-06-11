@@ -1,10 +1,8 @@
-package com.aliya.compat;
+package com.aliya.compat.sample;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.aliya.compat.sample.ToastSampleActivity;
 
 public class MainActivity extends AppCompatActivity {
 

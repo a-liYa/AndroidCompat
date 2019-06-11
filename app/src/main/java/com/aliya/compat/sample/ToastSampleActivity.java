@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.aliya.compat.R;
 import com.aliya.compat.ToastContext;
 
 /**

@@ -1,6 +1,8 @@
-package com.aliya.compat;
+package com.aliya.compat.sample;
 
 import android.support.multidex.MultiDexApplication;
+
+import com.aliya.compat.CrashCompat;
 
 /**
  * App
