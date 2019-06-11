@@ -1,4 +1,4 @@
-package com.aliya.compat.toast;
+package com.aliya.compat;
 
 import android.content.Context;
 import android.content.ContextWrapper;

@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aliya.compat.R;
-import com.aliya.compat.toast.ToastContext;
+import com.aliya.compat.ToastContext;
 
 /**
  * Toast WindowManager$BadTokenException 异常演示
