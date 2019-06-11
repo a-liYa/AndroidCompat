@@ -41,16 +41,16 @@ public class ToastSampleActivity extends AppCompatActivity implements View.OnCli
                 Toast.makeText(this, "我是正常Toast", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tv_exception:
-                Toast.makeText(this, "我是异常Toast", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "我是异常Toast", Toast.LENGTH_LONG).show();
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) {
                 }
                 break;
             case R.id.tv_fix_exception:
                 Toast.makeText(ToastContext.compatContext(this), "我是异常修复Toast", Toast.LENGTH_SHORT).show();
                 try {
-                    Thread.sleep(3000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) {
                 }
                 break;
