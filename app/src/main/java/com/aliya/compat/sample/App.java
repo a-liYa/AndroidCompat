@@ -12,9 +12,13 @@ import com.aliya.compat.CrashCompat;
  */
 public class App extends MultiDexApplication {
 
+    public Thread.UncaughtExceptionHandler mDefaultUncaughtHandler;
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+        mDefaultUncaughtHandler = Thread.getDefaultUncaughtExceptionHandler();
 
         CrashCompat.fixBug();
     }
