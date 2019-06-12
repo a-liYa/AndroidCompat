@@ -3,6 +3,7 @@ package com.aliya.compat.sample;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +32,14 @@ public class ToastSampleActivity extends AppCompatActivity implements View.OnCli
         findViewById(R.id.tv_normal).setOnClickListener(this);
         findViewById(R.id.tv_exception).setOnClickListener(this);
         findViewById(R.id.tv_fix_exception).setOnClickListener(this);
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        Log.e("TAG", "finalize: before");
+        Thread.sleep(100 * 1000);
+        Log.e("TAG", "finalize: after");
+        super.finalize();
     }
 
     @Override
