@@ -26,6 +26,7 @@ public class ToastSampleActivity extends AppCompatActivity implements View.OnCli
         setTitle("Toast演示");
         mTvTip = findViewById(R.id.tv_tip);
 
+        // 最好使用原生模拟器演示
         mTvTip.setText("Toast异常需要系统在 Android 26 以下\n" + "当前 Api = " + Build.VERSION.SDK_INT);
 
         findViewById(R.id.tv_normal).setOnClickListener(this);
@@ -40,7 +41,7 @@ public class ToastSampleActivity extends AppCompatActivity implements View.OnCli
                 Toast.makeText(this, "我是正常Toast", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tv_exception:
-                Toast.makeText(this, "我是异常Toast", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "我是异常Toast", Toast.LENGTH_SHORT).show();
                 try {
                     Thread.sleep(5000);
                 } catch (InterruptedException e) {

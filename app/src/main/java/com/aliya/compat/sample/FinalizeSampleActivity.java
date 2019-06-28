@@ -46,6 +46,14 @@ public class FinalizeSampleActivity extends AppCompatActivity implements View.On
                 break;
             case R.id.tv_fix_exception:
                 CrashCompat.fixBug();
+                new FinalizeObject();
+                getWindow().getDecorView().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        System.gc();
+                    }
+                });
+                Toast.makeText(this, "需等系统GC才触发异常\n请耐心等待", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

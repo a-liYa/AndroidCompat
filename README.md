@@ -29,6 +29,28 @@ implementation 'com.aliya:android-compat:0.0.1'
         at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:886)
         at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:776)
 ```
+
+Android level 26 (8.0) 官方已修复
+
+```
+Android 26 源码：
+
+private static class TN extends ITransientNotification.Stub {
+	...
+	
+	public void handleShow(IBinder windowToken) {
+		...
+		
+		try {
+			mWM.addView(mView, mParams);
+			trySendAccessibilityEvent();
+		} catch (WindowManager.BadTokenException e) {
+			/* ignore */
+		}
+	}
+}
+```
+
 线上 App Crash 上报数据：
 ![MacDown logo](./doc/xiao_shi_xin_wen_crash_1.png)
 ![MacDown logo](./doc/zhe_jiang_xin_wen_crash_1.png)
@@ -68,3 +90,6 @@ Toast.makeText(ToastContext.compatContext(context), "xxx", Toast.LENGTH_SHORT).s
         CrashCompat.fixBug(); // 在Crash上报工具之后调用，eg：Bugly init.
     }
 ```
+
+参考：
+[https://juejin.im/entry/5cdc17e5f265da03a54c4198](https://juejin.im/entry/5cdc17e5f265da03a54c4198)
