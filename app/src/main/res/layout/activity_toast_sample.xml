@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-    tools:context=".sample.ToastSampleActivity">
+    android:padding="10dp"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tv_tip"
@@ -19,28 +18,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="?attr/selectableItemBackground"
+        android:background="@drawable/item_click_background"
+        android:foreground="?attr/selectableItemBackground"
         android:gravity="center"
-        android:padding="5dp"
-        android:text="显示Toast（正常）" />
+        android:padding="10dp"
+        android:text="显示Toast（正常）"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tv_exception"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="?attr/selectableItemBackground"
+        android:background="@drawable/item_click_background"
+        android:foreground="?attr/selectableItemBackground"
         android:gravity="center"
-        android:padding="5dp"
-        android:text="显示Toast（异常）" />
+        android:padding="10dp"
+        android:text="显示Toast（异常）"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tv_fix_exception"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="?attr/selectableItemBackground"
+        android:background="@drawable/item_click_background"
+        android:foreground="?attr/selectableItemBackground"
         android:gravity="center"
-        android:padding="5dp"
-        android:text="显示Toast（修复异常）" />
+        android:padding="10dp"
+        android:text="显示Toast（修复异常）"
+        android:textSize="16sp" />
 </LinearLayout>

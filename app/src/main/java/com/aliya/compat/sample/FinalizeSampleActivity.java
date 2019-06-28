@@ -34,7 +34,7 @@ public class FinalizeSampleActivity extends AppCompatActivity implements View.On
                     App app = (App) getApplication();
                     // 恢复默认
                     Thread.setDefaultUncaughtExceptionHandler(app.mDefaultUncaughtHandler);
-                    new TempObject();
+                    new FinalizeObject();
                     getWindow().getDecorView().post(new Runnable() {
                         @Override
                         public void run() {
@@ -50,7 +50,7 @@ public class FinalizeSampleActivity extends AppCompatActivity implements View.On
         }
     }
 
-    static class TempObject extends Object {
+    static class FinalizeObject extends Object {
         @Override
         protected void finalize() throws Throwable {
             Log.e("TAG", "finalize: before " + "Thread name: " + Thread.currentThread().getName());
