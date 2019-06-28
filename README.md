@@ -29,9 +29,13 @@ implementation 'com.aliya:android-compat:0.0.1'
         at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:886)
         at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:776)
 ```
-修复方法
+线上 App Crash 上报数据：
+![MacDown logo](./doc/xiao_shi_xin_wen_crash_1.png)
+![MacDown logo](./doc/zhe_jiang_xin_wen_crash_1.png)
+
+修复方法，替换Context
 ```
-Toast.makeText(ToastContext.compatContext(context), "", Toast.LENGTH_SHORT).show();
+Toast.makeText(ToastContext.compatContext(context), "xxx", Toast.LENGTH_SHORT).show();
 ```
 
 ## 2. 修复 Object#finalize() - java.util.concurrent.TimeoutException 异常
@@ -48,13 +52,19 @@ Toast.makeText(ToastContext.compatContext(context), "", Toast.LENGTH_SHORT).show
         at java.lang.Thread.run(Thread.java:818)
 ```
 
+线上 App Crash 上报数据：
+
+![MacDown logo](./doc/xiao_shi_xin_wen_crash_2.png)
+
+![MacDown logo](./doc/zhe_jiang_xin_wen_crash_2.png)
+
 修复方法：在 Application#onCreate() 调用以下方法
 
 ```
-@Override
+    @Override
     public void onCreate() {
         super.onCreate();
 
-        CrashCompat.fixBug(); // 在Bug上报工具之后，eg：Bugly init.
+        CrashCompat.fixBug(); // 在Crash上报工具之后调用，eg：Bugly init.
     }
 ```
