@@ -10,6 +10,7 @@ import java.util.concurrent.TimeoutException;
  */
 public final class CrashCompat {
 
+    // 必须在Bug统计库（eg：Bugly）之后初始化，否则Bug仍会被上报。
     public static void fixBug() {
         new UncaughtHandler();
     }
