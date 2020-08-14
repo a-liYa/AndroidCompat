@@ -8,7 +8,7 @@
 [![MinSdk](https://img.shields.io/badge/%20MinSdk%20-%2014%20-f0ad4e.svg)](https://android-arsenal.com/api?level=14)
 
 ```
-implementation 'com.aliya:android-compat:0.0.1'
+implementation 'com.aliya:android-compat:1.0.0'
 ```
 
 ## 1. 修复 Toast WindowManager$BadTokenException 异常
