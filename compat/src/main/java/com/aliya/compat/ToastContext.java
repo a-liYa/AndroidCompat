@@ -12,6 +12,8 @@ import android.view.WindowManager;
 /**
  * 解决 8.0 以下 Toast WindowManager$BadTokenException 异常
  *
+ * 原理：使用包装器在原方法上加 try catch
+ *
  * @author a_liYa
  * @date 2019-06-06 17:07.
  */
@@ -27,11 +29,13 @@ public class ToastContext extends ContextWrapper {
         super(base);
     }
 
+    // 2. 拦截 getApplicationContext() 返回 ApplicationContextWrapper 包装器
     @Override
     public Context getApplicationContext() {
         return new ApplicationContextWrapper(super.getApplicationContext());
     }
 
+    // 1. 入口，拦截 LayoutInflater，替换 context 为 ToastContext
     @Override
     public Object getSystemService(String name) {
         Object service = super.getSystemService(name);
@@ -52,6 +56,7 @@ public class ToastContext extends ContextWrapper {
             super(base);
         }
 
+        // 3. 拦截 getSystemService() 返回 WindowManagerWrapper 包装器
         @Override
         public Object getSystemService(String name) {
             if (Context.WINDOW_SERVICE.equals(name)) {
@@ -79,6 +84,7 @@ public class ToastContext extends ContextWrapper {
             mBase.removeViewImmediate(view);
         }
 
+        // 4. 在原方法上加 try catch 代码
         @Override
         public void addView(View view, ViewGroup.LayoutParams params) {
             try {
